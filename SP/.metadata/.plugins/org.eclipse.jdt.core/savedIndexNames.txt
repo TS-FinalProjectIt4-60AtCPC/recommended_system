@@ -4,7 +4,6 @@ INDEX VERSION 1.127+D:\Final Project IT4\GitHub\recommended_system_java\SP\.meta
 2569705209.index
 2036858435.index
 1294244358.index
-301100125.index
 1407683532.index
 3677605692.index
 3338684372.index
