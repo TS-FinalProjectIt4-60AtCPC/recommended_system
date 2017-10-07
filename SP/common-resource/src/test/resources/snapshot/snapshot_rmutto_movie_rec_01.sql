@@ -143,6 +143,127 @@ CREATE TABLE IF NOT EXISTS `con_user_map_role` (
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
+-- Dumping structure for table rmutto_movie_rec.mnm_comment
+DROP TABLE IF EXISTS `mnm_comment`;
+CREATE TABLE IF NOT EXISTS `mnm_comment` (
+  `MNM_COMMENT_ID` bigint(22) NOT NULL AUTO_INCREMENT,
+  `MNM_COMMENT_DESC` bigint(22) DEFAULT NULL,
+  `MNM_MOVIE_ID` bigint(22) NOT NULL,
+  `CREATE_DATE` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `CREATE_BY` bigint(22) NOT NULL,
+  `UPDATE_DATE` timestamp NULL DEFAULT NULL,
+  `UPDATE_BY` bigint(22) DEFAULT NULL,
+  PRIMARY KEY (`MNM_COMMENT_ID`),
+  KEY `FK_mnm_comment_mnm_movie` (`MNM_MOVIE_ID`),
+  CONSTRAINT `FK_mnm_comment_mnm_movie` FOREIGN KEY (`MNM_MOVIE_ID`) REFERENCES `mnm_movie` (`MNM_MOVIE_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Data exporting was unselected.
+-- Dumping structure for table rmutto_movie_rec.mnm_comment_map_user
+DROP TABLE IF EXISTS `mnm_comment_map_user`;
+CREATE TABLE IF NOT EXISTS `mnm_comment_map_user` (
+  `MNM_CMU_ID` bigint(22) NOT NULL AUTO_INCREMENT,
+  `MNM_COMMENT_ID` bigint(22) NOT NULL,
+  `CON_USER_ID` bigint(22) NOT NULL,
+  `CREATE_DATE` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `CREATE_BY` bigint(22) NOT NULL,
+  `UPDATE_DATE` timestamp NULL DEFAULT NULL,
+  `UPDATE_BY` bigint(22) DEFAULT NULL,
+  PRIMARY KEY (`MNM_CMU_ID`),
+  KEY `FK_mnm_comment_map_user_mnm_comment` (`MNM_COMMENT_ID`),
+  KEY `FK_mnm_comment_map_user_con_user` (`CON_USER_ID`),
+  CONSTRAINT `FK_mnm_comment_map_user_con_user` FOREIGN KEY (`CON_USER_ID`) REFERENCES `con_user` (`CON_USER_ID`),
+  CONSTRAINT `FK_mnm_comment_map_user_mnm_comment` FOREIGN KEY (`MNM_COMMENT_ID`) REFERENCES `mnm_comment` (`MNM_COMMENT_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Data exporting was unselected.
+-- Dumping structure for table rmutto_movie_rec.mnm_map_movie
+DROP TABLE IF EXISTS `mnm_map_movie`;
+CREATE TABLE IF NOT EXISTS `mnm_map_movie` (
+  `MNM_MM_ID` bigint(22) NOT NULL AUTO_INCREMENT,
+  `MNM_MOVIE_ID` bigint(22) NOT NULL,
+  `MNM_MOVIE_CATEGORY_ID` bigint(22) NOT NULL,
+  `CREATE_DATE` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `CREATE_BY` bigint(22) NOT NULL,
+  `UPDATE_DATE` timestamp NULL DEFAULT NULL,
+  `UPDATE_BY` bigint(22) DEFAULT NULL,
+  PRIMARY KEY (`MNM_MM_ID`),
+  KEY `FK_mnm_map_movie_mnm_movie` (`MNM_MOVIE_ID`),
+  KEY `FK_mnm_map_movie_mnm_movie_category` (`MNM_MOVIE_CATEGORY_ID`),
+  CONSTRAINT `FK_mnm_map_movie_mnm_movie` FOREIGN KEY (`MNM_MOVIE_ID`) REFERENCES `mnm_movie` (`MNM_MOVIE_ID`),
+  CONSTRAINT `FK_mnm_map_movie_mnm_movie_category` FOREIGN KEY (`MNM_MOVIE_CATEGORY_ID`) REFERENCES `mnm_movie_category` (`MNM_MOVIE_CATEGORY_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Data exporting was unselected.
+-- Dumping structure for table rmutto_movie_rec.mnm_movie
+DROP TABLE IF EXISTS `mnm_movie`;
+CREATE TABLE IF NOT EXISTS `mnm_movie` (
+  `MNM_MOVIE_ID` bigint(22) NOT NULL AUTO_INCREMENT,
+  `MNM_MOVIE_NAME` varchar(250) DEFAULT NULL,
+  `MNM_MOVIE_NAME_EN` varchar(250) DEFAULT NULL,
+  `MNM_MOVIE_DESC` varchar(250) DEFAULT NULL,
+  `MNM_MOVIE_DESC_EN` varchar(250) DEFAULT NULL,
+  `MNM_MOVIE_IMG_PATH` varchar(250) DEFAULT NULL,
+  `MNM_MOVIE_TRAILER_PATH` varchar(250) DEFAULT NULL,
+  `MNM_MOVIE_MEDIA_PATH` varchar(250) DEFAULT NULL,
+  `CREATE_DATE` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `CREATE_BY` bigint(22) NOT NULL,
+  `UPDATE_DATE` timestamp NULL DEFAULT NULL,
+  `UPDATE_BY` bigint(22) DEFAULT NULL,
+  PRIMARY KEY (`MNM_MOVIE_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Data exporting was unselected.
+-- Dumping structure for table rmutto_movie_rec.mnm_movie_category
+DROP TABLE IF EXISTS `mnm_movie_category`;
+CREATE TABLE IF NOT EXISTS `mnm_movie_category` (
+  `MNM_MOVIE_CATEGORY_ID` bigint(22) NOT NULL AUTO_INCREMENT,
+  `MNM_MOVIE_CATEGORY_NAME` varchar(250) DEFAULT NULL,
+  `MNM_MOVIE_CATEGORY_NAME_EN` varchar(250) DEFAULT NULL,
+  `MNM_MOVIE_CATEGORY_DESC` varchar(250) DEFAULT NULL,
+  `MNM_MOVIE_CATEGORY_DESC_EN` varchar(250) DEFAULT NULL,
+  `CREATE_DATE` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `CREATE_BY` bigint(22) NOT NULL,
+  `UPDATE_DATE` timestamp NULL DEFAULT NULL,
+  `UPDATE_BY` bigint(22) DEFAULT NULL,
+  PRIMARY KEY (`MNM_MOVIE_CATEGORY_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Data exporting was unselected.
+-- Dumping structure for table rmutto_movie_rec.mnm_rate
+DROP TABLE IF EXISTS `mnm_rate`;
+CREATE TABLE IF NOT EXISTS `mnm_rate` (
+  `MNM_RATE_ID` bigint(22) NOT NULL AUTO_INCREMENT,
+  `MNM_RATING` float DEFAULT NULL,
+  `MNM_MOVIE_ID` bigint(22) NOT NULL,
+  `CREATE_DATE` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `CREATE_BY` bigint(22) NOT NULL,
+  `UPDATE_DATE` timestamp NULL DEFAULT NULL,
+  `UPDATE_BY` bigint(22) DEFAULT NULL,
+  PRIMARY KEY (`MNM_RATE_ID`),
+  KEY `FK_mnm_rate_mnm_movie` (`MNM_MOVIE_ID`),
+  CONSTRAINT `FK_mnm_rate_mnm_movie` FOREIGN KEY (`MNM_MOVIE_ID`) REFERENCES `mnm_movie` (`MNM_MOVIE_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Data exporting was unselected.
+-- Dumping structure for table rmutto_movie_rec.mnm_rate_map_user
+DROP TABLE IF EXISTS `mnm_rate_map_user`;
+CREATE TABLE IF NOT EXISTS `mnm_rate_map_user` (
+  `MNM_RMU_ID` bigint(22) NOT NULL AUTO_INCREMENT,
+  `MNM_RATE_ID` bigint(22) NOT NULL,
+  `CON_USER_ID` bigint(22) NOT NULL,
+  `CREATE_DATE` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `CREATE_BY` bigint(22) NOT NULL,
+  `UPDATE_DATE` timestamp NULL DEFAULT NULL,
+  `UPDATE_BY` bigint(22) DEFAULT NULL,
+  PRIMARY KEY (`MNM_RMU_ID`),
+  KEY `FK_mnm_rate_map_user_mnm_rate` (`MNM_RATE_ID`),
+  KEY `FK_mnm_rate_map_user_con_user` (`CON_USER_ID`),
+  CONSTRAINT `FK_mnm_rate_map_user_con_user` FOREIGN KEY (`CON_USER_ID`) REFERENCES `con_user` (`CON_USER_ID`),
+  CONSTRAINT `FK_mnm_rate_map_user_mnm_rate` FOREIGN KEY (`MNM_RATE_ID`) REFERENCES `mnm_rate` (`MNM_RATE_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Data exporting was unselected.
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
