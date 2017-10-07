@@ -92,7 +92,9 @@ CREATE TABLE IF NOT EXISTS `con_role_map_permission` (
   `UPDATE_BY` bigint(22) DEFAULT NULL,
   PRIMARY KEY (`CON_RMP_ID`),
   KEY `FK_con_role_map_permission_con_role` (`CON_ROLE_ID`),
-  KEY `FK_con_role_map_permission_con_permission` (`CON_PERM_ID`)
+  KEY `FK_con_role_map_permission_con_permission` (`CON_PERM_ID`),
+  CONSTRAINT `FK_con_role_map_permission_con_permission` FOREIGN KEY (`CON_PERM_ID`) REFERENCES `con_permission` (`CON_PERM_ID`),
+  CONSTRAINT `FK_con_role_map_permission_con_role` FOREIGN KEY (`CON_ROLE_ID`) REFERENCES `con_role` (`CON_ROLE_ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
@@ -139,7 +141,9 @@ CREATE TABLE IF NOT EXISTS `con_user_map_role` (
   `UPDATE_BY` bigint(22) DEFAULT NULL,
   PRIMARY KEY (`CON_UMR_ID`),
   KEY `FK_con_user_map_role_con_user` (`CON_USER_ID`),
-  KEY `FK_con_user_map_role_con_role` (`CON_ROLE_ID`)
+  KEY `FK_con_user_map_role_con_role` (`CON_ROLE_ID`),
+  CONSTRAINT `FK_con_user_map_role_con_role` FOREIGN KEY (`CON_ROLE_ID`) REFERENCES `con_role` (`CON_ROLE_ID`),
+  CONSTRAINT `FK_con_user_map_role_con_user` FOREIGN KEY (`CON_USER_ID`) REFERENCES `con_user` (`CON_USER_ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 -- Data exporting was unselected.
