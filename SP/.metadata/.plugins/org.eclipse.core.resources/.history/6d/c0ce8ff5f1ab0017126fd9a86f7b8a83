@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html data-ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title>Movie</title>
+	
+    <!-- JQUERY 1.12.4 -->
+    <script type="text/javascript" src="lib/jquery/jquery-1.12.4.min.js"></script>
+    
+    <!-- Angular 1.6.6 -->
+    <script type="text/javascript" src="lib/angular/angular.min.js"></script>
+    
+    <!-- BOOTSTRAP 4.00 -->
+    <script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" text="text/css" />
+    
+    <!-- Angular-UI-Router -->
+    <script type="text/javascript" src="lib/angular-ui-router/angular-ui-router.min.js"></script>
+    
+    <!-- DataTables -->
+    <script type="text/javascript" src="lib/datatables/DataTables-1.10.16/js/jquery.dataTables.min.js"></script>
+    <link href="lib/datatables/DataTables-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" text="text/css" />
+    <script type="text/javascript" src=""></script>
+    
+</head>
+<body>
+
+</body>
+</html>

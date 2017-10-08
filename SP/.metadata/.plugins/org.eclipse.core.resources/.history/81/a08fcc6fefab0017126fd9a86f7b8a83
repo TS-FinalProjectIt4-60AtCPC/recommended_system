@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html data-ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title>Movie</title>
+	
+    <!-- Angular 1.6.6 -->
+    <script type="text/javascript" src="lib/angular/angular.min.js"></script>
+</head>
+<body>
+
+</body>
+</html>
