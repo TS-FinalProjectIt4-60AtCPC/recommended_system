@@ -1,0 +1,4 @@
+#Tomcat publish data
+#Sun Oct 08 10:36:14 ICT 2017
+org.eclipse.jst.jee.server\:movie-system=D\:\\apache-tomcat-7.0.67\\wtpwebapps\\movie-system
+org.eclipse.jst.jee.server\:movie=D\:\\apache-tomcat-7.0.67\\wtpwebapps\\movie

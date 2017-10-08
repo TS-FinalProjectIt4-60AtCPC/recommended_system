@@ -5,11 +5,13 @@
 			<item value="th.rmutto.it.recommend"/>
 		</list>
 		<list key="name">
+			<item value="user-management-system"/>
 			<item value="movie-system"/>
 			<item value="movie"/>
 			<item value="common-resource"/>
 		</list>
 		<list key="artifactId">
+			<item value="user-management-system"/>
 			<item value="movie-system"/>
 			<item value="movie"/>
 			<item value="common-resource"/>
@@ -36,6 +38,7 @@
 	</section>
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="D:\Final Project IT4\GitHub\recommended_system_java\SP\Servers"/>
 			<item value="D:\Final Project IT4\GitHub\recommended_system_java\SP\common-resource"/>
 			<item value="D:\Final Project IT4\GitHub\recommended_system_java\SP"/>
 		</list>
