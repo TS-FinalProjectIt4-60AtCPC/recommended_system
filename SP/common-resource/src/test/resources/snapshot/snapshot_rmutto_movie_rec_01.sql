@@ -13,9 +13,9 @@
 
 
 -- Dumping database structure for rmutto_movie_rec
-DROP DATABASE IF EXISTS `rmutto_movie_rec`;
-CREATE DATABASE IF NOT EXISTS `rmutto_movie_rec` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `rmutto_movie_rec`;
+DROP DATABASE IF EXISTS `rmutto_movie_rec_test`;
+CREATE DATABASE IF NOT EXISTS `rmutto_movie_rec_test` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `rmutto_movie_rec_test`;
 
 -- Dumping structure for table rmutto_movie_rec.con_enum
 DROP TABLE IF EXISTS `con_enum`;
