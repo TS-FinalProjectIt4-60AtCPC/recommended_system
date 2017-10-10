@@ -18,4 +18,5 @@ from movie_management import views
 
 urlpatterns = [
     url(r'^movie_management/$', views.index),
+    url(r'^$', views.index, name='movie')
 ]

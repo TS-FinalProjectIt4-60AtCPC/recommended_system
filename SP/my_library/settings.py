@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '^-uz+8&jf)*3juwrwmfd6jk=^3c*agxde&m(lq3v!se6az++t5'
+SECRET_KEY = '$@n&m9%rcrkws4r9ms&0f7*=*0^&rv3sj258ns@8!il)87trsr'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -54,7 +54,7 @@ ROOT_URLCONF = 'my_library.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['movie_management/templates/'],
+        'DIRS': ['movie_management/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
