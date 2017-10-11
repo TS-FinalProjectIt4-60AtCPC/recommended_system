@@ -15,12 +15,20 @@ Including another URLconf
 """
 from django.conf import settings
 from django.conf.urls.static import static
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
+from rest_framework.routers import DefaultRouter
 from movie_management import views
 
+
+router = DefaultRouter()
+router.register(r'movie_management', views.MovieViewSet)
+
 urlpatterns = [
-    url(r'^movie_management/$', views.index),
+    url(r'^admin/', admin.site.urls),
+    url(r'^movie_management/', views.movie)
+    # url(r'^api/', include(router.urls)),
+    # url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
 
 if settings.DEBUG:
