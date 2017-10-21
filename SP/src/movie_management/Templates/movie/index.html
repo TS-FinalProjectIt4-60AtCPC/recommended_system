@@ -1,0 +1,15 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static '/bootstrap/css/bootstrap.min.css' %}"/>
+<!-- <link rel="stylesheet" type="text/css" href="{% static '/css/style.css' %}"/> -->
+<title>Movies</title>
+
+{{category_movies.count}}
+<div>
+    <ul>
+        {% for movies in category_movies %}
+          <li>
+              <a href="/movie_management/{{movies.movieId}}/">{{movies.title}}</a>
+          </li>
+        {% endfor %}
+    </ul>
+</div>

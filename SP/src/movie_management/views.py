@@ -1,27 +1,27 @@
-from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
-from movie_management.models import Movie
-from movie_management.serializers import MovieSerializers
-from rest_framework import viewsets, routers
-from rest_framework.decorators import detail_route, list_route
-from rest_framework.permissions import IsAuthenticated
-from rest_framework.parsers import JSONParser
-from rest_pandas import PandasSimpleView
-import pandas as pd
+from movie_management.controls import get_all_movies, get_recommend_movies, get_detail, get_category
+# import pandas as pd
 
-# Create your views here.
-class MovieViewSet(viewsets.ModelViewSet):
-    queryset = Movie.objects.all()
-    serializer_class = MovieSerializers
-    permission_classes = (IsAuthenticated,)
-    parser_classes = (JSONParser,)
 
-def movie(request):
-    movie = Movie.objects.all()
-    return render(request, 'index.html', {'movie': movie})
+def index(request):
+    template = loader.get_template('movie/index.html')
+    category = "Adventure"
+    context = {
+        'all_movies': get_all_movies(request),
+        'category_movies': get_category(self)
+    }
+    print(context)
+    return HttpResponse(template.render(context, request))
 
-# @list_route(methods=['get'])
-# def all_movies(self, request):
-#     movie = Movie.objects.values_list('title', flat=True).distinct()
-#     return Response(movie, status=status.HTTP_200_OK)
+
+def detail(request, movieId):
+    movie_detail = get_detail(request, movieId)
+    html = ''
+    html += 'Details for movie id: ' + str(movieId) + '<br>'
+    html += 'Title: ' + movie_detail.title + '<br>'
+    html += 'Genres : ' + movie_detail.genres
+    return HttpResponse(html)
+
+
+
