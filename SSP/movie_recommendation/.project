@@ -3,7 +3,6 @@
 	<name>movie_recommendation</name>
 	<comment></comment>
 	<projects>
-		<project>movie_services</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
